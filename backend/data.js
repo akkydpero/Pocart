@@ -1,4 +1,19 @@
+import brcypt from 'bcryptjs';
 const data = {
+  users: [
+    {
+      name: 'Akky',
+      email: 'akst.grg@gmail.com',
+      password: brcypt.hashSync('123456'),
+      isAdmin: true,
+    },
+    {
+      name: 'Akshat Garg',
+      email: 'akkydpero@gmail.com',
+      password: brcypt.hashSync('123456'),
+      isAdmin: false,
+    },
+  ],
   products: [
     {
       // _id:'1',
