@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "dotenv": "^16.0.3",
     "git": "^0.1.5",
+    "mongoose": "^6.7.0",
     "primeicons": "^6.0.1",
     "primereact": "^8.6.1"
   }
