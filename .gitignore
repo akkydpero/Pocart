@@ -2,3 +2,4 @@
 /node_modules
 /random.txt
 .env
+backend/node_modules/
