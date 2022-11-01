@@ -1,5 +1,11 @@
 {
-  "dependencies": {
+  "name": "pocart",
+  "description": "a really cool app",
+  "version": "1.0.0",
+  "engines": {
+    "node": "18.x"
+  },
+   "dependencies": {
     "dotenv": "^16.0.3",
     "git": "^0.1.5",
     "jsonwebtoken": "^8.5.1",
@@ -8,3 +14,4 @@
     "primereact": "^8.7.0"
   }
 }
+
