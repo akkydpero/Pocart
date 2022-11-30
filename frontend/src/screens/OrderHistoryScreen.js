@@ -69,12 +69,17 @@ export default function OrderHistoryScreen() {
               <th>TOTAL</th>
               <th>PAID</th>
               <th>DELIVERED</th>
-              <th>ACTIONS</th>
+              {/* <th>ACTIONS</th> */}
             </tr>
           </thead>
           <tbody>
             {orders.map((order) => (
-              <tr key={order._id}>
+              <tr
+                key={order._id}
+                onClick={() => {
+                  navigate(`/order/${order._id}`);
+                }}
+              >
                 <td>{order._id}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
                 <td>{order.totalPrice.toFixed(2)}</td>
@@ -85,7 +90,7 @@ export default function OrderHistoryScreen() {
                     : 'No'}
                 </td>
                 <td>
-                  <Button
+                  {/* <Button
                     type="button"
                     variant="light"
                     onClick={() => {
@@ -93,7 +98,7 @@ export default function OrderHistoryScreen() {
                     }}
                   >
                     Details
-                  </Button>
+                  </Button> */}
                 </td>
               </tr>
             ))}
