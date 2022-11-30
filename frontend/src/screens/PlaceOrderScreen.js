@@ -40,7 +40,7 @@ export default function PlaceOrderScreen() {
   cart.itemsPrice = round2(
     cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
   );
-  cart.shippingPrice = cart.itemsPrice > 2000 ? round2(0) : round2(50);
+  cart.shippingPrice = cart.itemsPrice > 2000 ? round2(0) : round2(150);
   cart.taxPrice = round2(0.18 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
