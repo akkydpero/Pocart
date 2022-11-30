@@ -74,7 +74,7 @@ export default function OrderHistoryScreen() {
           </thead>
           <tbody>
             {orders.map((order) => (
-              <tr
+              <tr hover="true"
                 key={order._id}
                 onClick={() => {
                   navigate(`/order/${order._id}`);
@@ -88,17 +88,6 @@ export default function OrderHistoryScreen() {
                   {order.isDelivered
                     ? order.deliveredAt.substring(0, 10)
                     : 'No'}
-                </td>
-                <td>
-                  {/* <Button
-                    type="button"
-                    variant="light"
-                    onClick={() => {
-                      navigate(`/order/${order._id}`);
-                    }}
-                  >
-                    Details
-                  </Button> */}
                 </td>
               </tr>
             ))}
