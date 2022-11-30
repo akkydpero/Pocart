@@ -11,7 +11,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Store } from './Store';
-import { Badge } from 'primereact/badge';
+import Badge from 'react-bootstrap/Badge';
 import CartScreen from './screens/CartScreen';
 import SigninScreen from './screens/SignInScreen';
 import SignupScreen from './screens/SignUpScreen';
