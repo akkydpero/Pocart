@@ -11,7 +11,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Store } from './Store';
-import Badge from 'react-bootstrap/Badge';
+import { Badge } from 'primereact/badge';
 import CartScreen from './screens/CartScreen';
 import SigninScreen from './screens/SignInScreen';
 import SignupScreen from './screens/SignUpScreen';
@@ -118,7 +118,7 @@ function App() {
             </Routes>
           </Container>
         </main>
-        <footer>
+        <footer className='app-footer'>
           <div className="text-center">©Pocart 2022. All rights reserved.</div>
         </footer>
       </div>
