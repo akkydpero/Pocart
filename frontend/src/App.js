@@ -25,6 +25,7 @@ import Button from 'react-bootstrap/Button';
 import { getError } from './utils';
 import axios from 'axios';
 import SearchBox from './components/SearchBox';
+import SearchScreen from './screens/SearchScreen';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -55,7 +56,7 @@ function App() {
 
   return (
     <BrowserRouter>
-       <div
+      <div
         className={
           sidebarIsOpen
             ? 'd-flex flex-column site-container active-cont'
@@ -66,7 +67,7 @@ function App() {
         <header>
           <Navbar bg="dark" variant="dark" sticky="top" expand="lg">
             <Container>
-            <Button
+              <Button
                 variant="dark"
                 onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
               >
@@ -77,7 +78,7 @@ function App() {
               </LinkContainer>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
-              <SearchBox />
+                <SearchBox />
                 <Nav className="me-auto  w-100  justify-content-end">
                   <Link to="/cart" className="nav-link">
                     <i
@@ -112,7 +113,6 @@ function App() {
                         className="dropdown-item text-danger"
                         to="#signout"
                         onClick={signoutHandler}
-                      
                       >
                         Sign Out
                       </Link>
@@ -155,6 +155,7 @@ function App() {
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
+              <Route path="/search" element={<SearchScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
               <Route path="/profile" element={<ProfileScreen />} />
@@ -173,7 +174,7 @@ function App() {
             </Routes>
           </Container>
         </main>
-        <footer className='app-footer'>
+        <footer className="app-footer">
           <div className="text-center">©Pocart 2022. All rights reserved.</div>
         </footer>
       </div>
