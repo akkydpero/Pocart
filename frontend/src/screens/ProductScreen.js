@@ -17,6 +17,7 @@ import MessageBox from '../components/MessageBox';
 import { getError } from '../utils';
 import { Store } from '../Store';
 
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'REFRESH_PRODUCT':
@@ -46,6 +47,7 @@ function ProductScreen() {
 
   const params = useParams();
   const { slug } = params;
+  const [selectedImage, setSelectedImage] = useState('');
   const navigate = useNavigate();
 
   const [{ loading, error, product, loadingCreateReview }, dispatch] =
@@ -128,7 +130,7 @@ function ProductScreen() {
         <Col md={6}>
           <img
             className="img-large"
-            src={product.image}
+            src={selectedImage || product.image}
             alt={product.name}
           ></img>
         </Col>
@@ -147,6 +149,24 @@ function ProductScreen() {
               ></Rating>
             </ListGroup.Item>
             <ListGroup.Item>Price: ₹{product.price}</ListGroup.Item>
+            <ListGroup.Item>
+              <Row xs={1} md={2} className="g-2">
+                {[product.image, ...product.images].map((x) => (
+                  <Col key={x}>
+                    <Card>
+                      <Button
+                        className="thumbnail"
+                        type="button"
+                        variant="light"
+                        onClick={() => setSelectedImage(x)}
+                      >
+                        <Card.Img variant="top" src={x} alt="product" />
+                      </Button>
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
+            </ListGroup.Item>
             <ListGroup.Item>
               Description:
               <p>{product.description}</p>
