@@ -110,6 +110,19 @@ export default function OrderScreen() {
       }
     });
   }
+  // function testPayment(data, actions) {
+  //   return actions.order.capture().then(async function () {
+  //     try {
+  //       dispatch({ type: 'PAY_REQUEST' });
+  //       const { data } = await axios.put(`/api/orders/${order._id}/pay`);
+  //       dispatch({ type: 'PAY_SUCCESS', payload: data });
+  //       toast.success('Order is paid');
+  //     } catch (err) {
+  //       dispatch({ type: 'PAY_FAIL', payload: getError(err) });
+  //       toast.error(getError(err));
+  //     }
+  //   });
+  // }
   function onError(err) {
     toast.error(getError(err));
   }
@@ -207,6 +220,16 @@ export default function OrderScreen() {
                 <strong>Address: </strong> {order.shippingAddress.address},
                 {order.shippingAddress.city}, {order.shippingAddress.postalCode}
                 ,{order.shippingAddress.country}
+                &nbsp;
+                {order.shippingAddress.location &&
+                  order.shippingAddress.location.lat && (
+                    <a
+                      target="_new"
+                      href={`https://maps.google.com?q=${order.shippingAddress.location.lat},${order.shippingAddress.location.lng}`}
+                    >
+                      Show On Map
+                    </a>
+                  )}
               </Card.Text>
               {order.isDelivered ? (
                 <MessageBox variant="success">
@@ -297,18 +320,11 @@ export default function OrderScreen() {
                     </Col>
                   </Row>
                 </ListGroup.Item>
-                {/* <ListGroup.Item>
-                  <Button
-                    variant="primary"
-                    size="lg"
-                    onclick={() =>
-                      (order.isPaid = true)
-                      ((order.paidAt = Date.now()))
-                    }
-                  >
-                    Test Post-Payment
+                <ListGroup.Item>
+                  <Button variant="primary" size="lg" onClick={onApprove}>
+                    Test Post-Payment * Work in Progress
                   </Button>
-                </ListGroup.Item> */}
+                </ListGroup.Item>
                 {!order.isPaid && (
                   <ListGroup.Item>
                     {isPending ? (
