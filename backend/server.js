@@ -33,7 +33,9 @@ app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
-
+app.get('/api/keys/google', (req, res) => {
+  res.send({ key: process.env.GOOGLE_API_KEY || '' });
+});
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, '/frontend/build')));
 app.get('*', (req, res) =>
